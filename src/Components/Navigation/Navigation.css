@@ -1,0 +1,18 @@
+.app_navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: aliceblue;
+}
+.app_navigation_links {
+  display: flex;
+  gap: 2rem;
+}
+.app_navigation_links li {
+  list-style-type: none;
+  cursor: pointer;
+}
+.app_navigation_links li:hover {
+  color: blue;
+}
