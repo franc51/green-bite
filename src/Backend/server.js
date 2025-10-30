@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 3007;
+const port = process.env.REACT_APP_SERVER_PORT;
 
 app.use(cors());
 
