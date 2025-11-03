@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
 import RecipeCard from "./Components/RecipeCard/RecipeCard";
