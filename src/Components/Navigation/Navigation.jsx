@@ -5,7 +5,7 @@ import "./Navigation.css";
 const Navigation = () => {
   return (
     <div className="app_navigation">
-      <h3 className="app_navigation_logo">Green bite</h3>
+      <h1 className="app_navigation_logo">Green bite</h1>
       <ul className="app_navigation_links">
         <li>Home</li>
         <li>Recipes</li>
