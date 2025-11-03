@@ -7,6 +7,7 @@ const Navigation = () => {
 
   return (
     <nav className="app_navigation">
+    <div className="app_navigation">
       <h1 className="app_navigation_logo">Green bite</h1>
       <ul className="app_navigation_links">
         {navigationLinks.map((link, index) => (
