@@ -1,0 +1,21 @@
+.recipeFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipeForm {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+  gap: 0.5rem;
+  padding: 1rem 1.8rem;
+  margin: 1rem;
+  width: 30rem;
+  box-shadow: 3px 4px 10px 3px rgba(128, 128, 128, 0.171);
+  border-radius: 4px;
+}
+.recipeFormTitle {
+  text-align: center;
+}
