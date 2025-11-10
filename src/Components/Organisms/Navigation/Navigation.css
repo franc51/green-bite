@@ -1,0 +1,44 @@
+.app_navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 20rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-bottom: var(--light_gray_border);
+}
+.app_navigation_links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app_navigation_links li {
+  list-style-type: none;
+  cursor: pointer;
+}
+IconButton:hover {
+  color: rgb(78, 78, 180);
+  border-bottom: 2px solid rgb(78, 78, 180);
+}
+
+.app_navigation_list_item {
+  color: rgb(78, 78, 78);
+  list-style-type: none;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 1.3rem 1rem;
+  font-size: 1.1rem;
+}
+.app_navigation_list_item:hover {
+  color: rgb(78, 78, 180);
+  border-bottom: 2px solid rgb(78, 78, 180);
+}
+.app_navigation_logo {
+  height: 2rem;
+}
+.app_logo_and_searchBar {
+  display: flex;
+  gap: 2rem;
+}

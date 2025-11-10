@@ -1,0 +1,13 @@
+.file_upload_component_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+.file_upload_component_preview {
+  border-radius: 4px;
+  box-shadow: 3px 4px 10px 3px rgba(128, 128, 128, 0.171);
+}

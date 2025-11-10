@@ -1,0 +1,9 @@
+.app_navigation_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.1rem 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.205);
+  border-radius: 1rem;
+}

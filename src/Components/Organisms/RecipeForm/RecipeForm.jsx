@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FileUploadComponent from "../../Molecules/FileUpload/FileUpload";
 import "./RecipeForm.css";
 import {
   Box,
@@ -15,6 +16,7 @@ import {
   IconButton,
   MenuItem,
 } from "@mui/material";
+
 import AddIcon from "@mui/icons-material/Add";
 
 export default function RecipeForm() {
@@ -34,13 +36,22 @@ export default function RecipeForm() {
   const [ingredientInput, setIngredientInput] = useState("");
   const [instructionInput, setInstructionInput] = useState("");
 
+  const vitalIngredients = [
+    "sare",
+    "piper",
+    "boia",
+    "zahăr",
+    "pătrunjel",
+    "mărar",
+  ];
+
   const categories = [
-    "Desert",
     "Fel principal",
     "Supă/Ciorbă",
-    "Paste",
     "Antreu",
+    "Paste",
     "Pește",
+    "Desert",
   ];
 
   const handleChange = (e) => {
@@ -122,21 +133,11 @@ export default function RecipeForm() {
           ))}
         </TextField>
 
-        {/* Picture URL + Preview */}
-        <TextField
-          label="Link imagine"
-          name="picture"
-          value={form.picture}
-          onChange={handleChange}
-        />
-        {form.picture && (
-          <Box
-            component="img"
-            src={form.picture}
-            alt="Preview"
-            sx={{ maxWidth: 300, borderRadius: 1 }}
-          />
-        )}
+        {/* Picture Upload + Preview */}
+        <FileUploadComponent
+          file={form.picture}
+          setFile={(file) => setForm((prev) => ({ ...prev, picture: file }))}
+        ></FileUploadComponent>
 
         {/* Cook time & servings */}
         <Typography>Timp de gătire: {form.cooktime} minute</Typography>
@@ -166,9 +167,15 @@ export default function RecipeForm() {
           exclusive
           onChange={handleDifficultyChange}
         >
-          <ToggleButton value="easy">Ușor</ToggleButton>
-          <ToggleButton value="medium">Mediu</ToggleButton>
-          <ToggleButton value="hard">Dificil</ToggleButton>
+          <ToggleButton value="easy" color="success">
+            Ușor
+          </ToggleButton>
+          <ToggleButton value="medium" color="warning">
+            Mediu
+          </ToggleButton>
+          <ToggleButton value="hard" color="error">
+            Dificil
+          </ToggleButton>
         </ToggleButtonGroup>
 
         {/* Ingredients */}
@@ -191,6 +198,27 @@ export default function RecipeForm() {
           <IconButton color="primary" onClick={handleAddIngredient}>
             <AddIcon />
           </IconButton>
+        </Stack>
+
+        <Typography>Sugestii:</Typography>
+        <Stack direction="row" spacing={1} flexWrap="wrap" mb={1}>
+          {vitalIngredients.map((ing) => (
+            <Chip
+              key={ing}
+              label={ing}
+              variant="outlined"
+              color="secondary"
+              onClick={() => {
+                // dacă nu e deja în lista form.ingredients, o adăugăm
+                if (!form.ingredients.includes(ing)) {
+                  setForm((prev) => ({
+                    ...prev,
+                    ingredients: [...prev.ingredients, ing],
+                  }));
+                }
+              }}
+            />
+          ))}
         </Stack>
 
         {/* Instructions */}
@@ -229,7 +257,7 @@ export default function RecipeForm() {
           label="Vegan"
         />
 
-        <Button variant="contained" type="submit">
+        <Button variant="contained" type="submit" startIcon={<AddIcon />}>
           Adaugă Rețeta
         </Button>
       </Box>

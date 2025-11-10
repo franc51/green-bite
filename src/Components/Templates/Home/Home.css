@@ -1,0 +1,22 @@
+.app_home_welcome {
+  padding: 1rem 5rem;
+  margin: 2rem 20rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: var(--font_color);
+  border: var(--light_gray_border);
+  border-radius: var(--molecule_border_radius);
+  Button {
+    margin: 0 29rem;
+  }
+}
+.app_home_description {
+  font-size: 2rem;
+}
+.app_home_title {
+  font-size: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

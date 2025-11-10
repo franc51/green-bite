@@ -1,13 +1,13 @@
 import "./App.css";
-import Navigation from "./Components/Navigation/Navigation";
-import RecipeForm from "./Components/RecipeForm/RecipeForm";
+import Home from "./Components/Templates/Home/Home";
+import Navigation from "./Components/Organisms/Navigation/Navigation";
 
 // Main function of the application that renders everything
 function App() {
   return (
     <div className="App">
       <Navigation></Navigation>
-      <RecipeForm></RecipeForm>
+      <Home></Home>
     </div>
   );
 }

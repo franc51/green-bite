@@ -15,7 +15,11 @@
   width: 30rem;
   box-shadow: 3px 4px 10px 3px rgba(128, 128, 128, 0.171);
   border-radius: 4px;
+  background-color: white;
 }
 .recipeFormTitle {
   text-align: center;
+  font-weight: 500;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 0.5rem 0;
 }
