@@ -1,14 +1,21 @@
-import "./App.css";
-import Home from "./Components/Templates/Home/Home";
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import routes from "./routes";
 import Navigation from "./Components/Organisms/Navigation/Navigation";
+import Home from "./Components/Templates/Home/Home";
 
-// Main function of the application that renders everything
+function AppRoutes() {
+  const element = useRoutes(routes); // dynamically build routes from routes.js
+  return element;
+}
+
 function App() {
   return (
-    <div className="App">
-      <Navigation></Navigation>
-      <Home></Home>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navigation /> {/* static navigation */}
+        <AppRoutes /> {/* dynamic page content from routes.js */}
+      </div>
+    </BrowserRouter>
   );
 }
 

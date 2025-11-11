@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 20rem;
+  padding: 0.4rem 20rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: sticky;
   width: 100%;
@@ -18,17 +18,13 @@
   list-style-type: none;
   cursor: pointer;
 }
-IconButton:hover {
-  color: rgb(78, 78, 180);
-  border-bottom: 2px solid rgb(78, 78, 180);
-}
 
 .app_navigation_list_item {
   color: rgb(78, 78, 78);
   list-style-type: none;
   text-decoration: none;
   font-weight: 400;
-  padding: 1.3rem 1rem;
+  padding: 1.2rem 1rem;
   font-size: 1.1rem;
 }
 .app_navigation_list_item:hover {
@@ -40,5 +36,6 @@ IconButton:hover {
 }
 .app_logo_and_searchBar {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
