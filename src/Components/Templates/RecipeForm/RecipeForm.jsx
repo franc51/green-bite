@@ -85,8 +85,9 @@ export default function RecipeForm() {
       [field]: prev[field].filter((_, i) => i !== index),
     }));
 
-  const handleDifficultyChange = (_, val) =>
-    val && setForm((prev) => ({ ...prev, difficulty: val }));
+  const handleDifficultyChange = (previusDifficulty, nextDifficulty) =>
+    nextDifficulty &&
+    setForm((prev) => ({ ...prev, difficulty: nextDifficulty }));
 
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
