@@ -91,10 +91,51 @@ export default function RecipeForm() {
   const handleNext = () => setActiveStep((prev) => prev + 1);
   const handleBack = () => setActiveStep((prev) => prev - 1);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-    alert("Rețeta a fost adăugată!");
+
+    try {
+      const formData = new FormData();
+      for (const key in form) {
+        if (key === "ingredients" || key === "instructions") {
+          formData.append(key, JSON.stringify(form[key]));
+        } else if (key === "picture" && form.picture) {
+          formData.append("picture", form.picture);
+        } else {
+          formData.append(key, form[key]);
+        }
+      }
+
+      const response = await fetch("http://localhost:5000/add-recipe", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      const data = await response.json();
+      console.log("Recipe saved:", data);
+      alert("Rețeta a fost adăugată!");
+
+      // Reset form
+      setForm({
+        title: "",
+        category: "",
+        picture: null,
+        cooktime: 30,
+        servings: 1,
+        difficulty: "easy",
+        ingredients: [],
+        instructions: [],
+        vegan: false,
+        keto: false,
+        author: "",
+      });
+      setActiveStep(0);
+    } catch (error) {
+      console.error("Error saving recipe:", error);
+      alert("A apărut o eroare la salvarea rețetei.");
+    }
   };
 
   const renderStepContent = (step) => {
