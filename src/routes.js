@@ -3,7 +3,7 @@ import RecipeForm from "./Components/Templates/RecipeForm/RecipeForm";
 
 const routes = [
   {
-    path: "/Acasă",
+    path: "/acasa",
     element: <Home />,
   },
   {
@@ -11,7 +11,7 @@ const routes = [
     element: <Home />,
   },
   {
-    path: "/Adaugă rețetă",
+    path: "/adauga-reteta",
     element: <RecipeForm />,
   },
 ];

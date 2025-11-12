@@ -16,10 +16,10 @@ const Navigation = () => {
         navigate("/");
         break;
       case "Rețete":
-        navigate("/recipes");
+        navigate("/retete");
         break;
       case "Adaugă rețetă":
-        navigate("/addRecipe");
+        navigate("/adauga-reteta");
         break;
       default:
         navigate("/");
