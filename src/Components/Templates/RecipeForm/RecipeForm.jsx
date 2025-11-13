@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import FileUploadComponent from "../../Molecules/FileUpload/FileUpload";
+import AppSnackbar from "../../Molecules/SnackBar/snackBar";
+import Loader from "../../Molecules/Loader/Loader";
 import {
   Box,
   Button,
@@ -22,6 +23,13 @@ import AddIcon from "@mui/icons-material/Add";
 
 export default function RecipeForm() {
   const [activeStep, setActiveStep] = useState(0);
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   const steps = [
     "Detalii rețetă",
@@ -70,6 +78,9 @@ export default function RecipeForm() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const addItem = (field, value, setter) => {
@@ -88,40 +99,50 @@ export default function RecipeForm() {
   const handleDifficultyChange = (_, val) =>
     val && setForm((prev) => ({ ...prev, difficulty: val }));
 
-  const handleNext = () => setActiveStep((prev) => prev + 1);
+  const handleNext = () => {
+    if (validateStep(activeStep)) {
+      setActiveStep((prev) => prev + 1);
+    }
+  };
+
   const handleBack = () => setActiveStep((prev) => prev - 1);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const formData = new FormData();
-      for (const key in form) {
-        if (key === "ingredients" || key === "instructions") {
-          formData.append(key, JSON.stringify(form[key]));
-        } else if (key === "picture" && form.picture) {
-          formData.append("picture", form.picture);
-        } else {
-          formData.append(key, form[key]);
-        }
-      }
+    if (!validateStep(activeStep)) {
+      setSnackbar({
+        open: true,
+        message: "Trebuie să completezi toate câmpurile obligatorii!",
+        severity: "error",
+      });
+      return;
+    }
 
-      const response = await fetch("http://localhost:5000/add-recipe", {
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/recipes", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
 
       if (!response.ok) throw new Error("Network response was not ok");
 
       const data = await response.json();
       console.log("Recipe saved:", data);
-      alert("Rețeta a fost adăugată!");
+      setSnackbar({
+        open: true,
+        message: "Rețeta a fost adăugată!",
+        severity: "success",
+      });
 
       // Reset form
       setForm({
         title: "",
         category: "",
-        picture: null,
+        picture: "",
         cooktime: 30,
         servings: 1,
         difficulty: "easy",
@@ -134,8 +155,40 @@ export default function RecipeForm() {
       setActiveStep(0);
     } catch (error) {
       console.error("Error saving recipe:", error);
-      alert("A apărut o eroare la salvarea rețetei.");
+      setSnackbar({
+        open: true,
+        message: "A apărut o eroare la salvarea rețetei.",
+        severity: "error",
+      });
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const validateStep = (step) => {
+    const newErrors = {};
+
+    if (step === 0) {
+      if (!form.title.trim()) newErrors.title = "Titlul este obligatoriu";
+      if (!form.category.trim())
+        newErrors.category = "Categoria este obligatorie";
+    }
+
+    if (step === 1 && form.ingredients.length === 0) {
+      newErrors.ingredients = "Trebuie să adaugi cel puțin un ingredient";
+    }
+
+    if (step === 2 && form.instructions.length === 0) {
+      newErrors.instructions = "Trebuie să adaugi cel puțin o instrucțiune";
+    }
+
+    if (step === 3 && form.author.length === 0) {
+      newErrors.author = "Trebuie să introduci numele tău";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // true if no errors
   };
 
   const renderStepContent = (step) => {
@@ -148,6 +201,8 @@ export default function RecipeForm() {
               name="title"
               value={form.title}
               onChange={handleChange}
+              error={!!errors.title}
+              helperText={errors.title}
               required
             />
             <TextField
@@ -156,6 +211,8 @@ export default function RecipeForm() {
               name="category"
               value={form.category}
               onChange={handleChange}
+              error={!!errors.category}
+              helperText={errors.category}
               required
             >
               {categories.map((cat) => (
@@ -164,13 +221,19 @@ export default function RecipeForm() {
                 </MenuItem>
               ))}
             </TextField>
-            <FileUploadComponent
-              file={form.picture}
-              setFile={(file) =>
-                setForm((prev) => ({ ...prev, picture: file }))
-              }
+            <TextField
+              label="Link imagine"
+              name="picture"
+              value={form.picture}
+              onChange={handleChange}
             />
-            <Typography>Timp de gătire: {form.cooktime} min</Typography>
+
+            <Typography>
+              Timp de gătire:{" "}
+              {form.cooktime >= 60
+                ? `${Math.floor(form.cooktime / 60)}h ${form.cooktime % 60}m`
+                : `${form.cooktime} min`}
+            </Typography>
             <Slider
               value={form.cooktime}
               min={5}
@@ -181,6 +244,7 @@ export default function RecipeForm() {
                 setForm((prev) => ({ ...prev, cooktime: val }))
               }
             />
+
             <Typography>Porții: {form.servings}</Typography>
             <Slider
               value={form.servings}
@@ -232,6 +296,11 @@ export default function RecipeForm() {
                   onDelete={() => removeItem("ingredients", i)}
                 />
               ))}
+              {errors.ingredients && (
+                <Typography color="error" variant="body2">
+                  {errors.ingredients}
+                </Typography>
+              )}
             </Stack>
             <Stack direction="row" spacing={1}>
               <TextField
@@ -282,6 +351,11 @@ export default function RecipeForm() {
                   variant="outlined"
                 />
               ))}
+              {errors.instructions && (
+                <Typography color="error" variant="body2">
+                  {errors.instructions}
+                </Typography>
+              )}
             </Stack>
             <Stack direction="row" spacing={1}>
               <TextField
@@ -317,7 +391,7 @@ export default function RecipeForm() {
             <FormControlLabel
               control={
                 <Checkbox
-                  name="vegan"
+                  name="keto"
                   checked={form.keto}
                   onChange={handleChange}
                 />
@@ -329,11 +403,9 @@ export default function RecipeForm() {
               name="author"
               value={form.author}
               onChange={handleChange}
+              error={!!errors.author}
+              helperText={errors.author}
             />
-            <Typography>
-              Dacă nu completezi acest câmp rețeta va fi postată dar va avea
-              autor anonim.
-            </Typography>
           </Stack>
         );
       default:
@@ -368,13 +440,20 @@ export default function RecipeForm() {
                 Următorul pas
               </Button>
             ) : (
-              <Button variant="contained" type="submit">
-                Adaugă rețeta
+              <Button variant="contained" type="submit" disabled={loading}>
+                {loading ? <Loader size={20} /> : "Adaugă rețeta"}
               </Button>
             )}
           </Stack>
         </form>
       </Box>
+      <AppSnackbar
+        open={snackbar.open}
+        onClose={() => setSnackbar((prev) => ({ ...prev, open: false }))}
+        message={snackbar.message}
+        severity={snackbar.severity}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      />
     </Box>
   );
 }
