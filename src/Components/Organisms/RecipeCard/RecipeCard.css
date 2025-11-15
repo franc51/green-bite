@@ -1,0 +1,39 @@
+.recipe_card {
+  max-width: 30rem;
+  cursor: pointer;
+}
+.recipe_card:hover {
+  box-shadow: 3px 4px 10px 3px rgba(128, 128, 128, 0.171);
+}
+.recipe_card_box {
+  position: relative !important;
+}
+.recipe_card_cook_and_difficulty {
+  display: flex;
+  margin: 0.5rem 0.8rem;
+  gap: 1rem;
+  align-items: center;
+}
+.recipe_card_cook_and_difficulty_icons {
+  display: flex;
+  gap: 0.4rem;
+  background-color: whitesmoke;
+  padding: 0.2rem 0.6rem;
+  margin-top: 0.4rem;
+  border-radius: 4px;
+}
+.recipe_card_fav_icon {
+  position: absolute !important;
+  bottom: 5%;
+  right: 3%;
+  z-index: 2;
+  background-color: white !important;
+  border-radius: 50%;
+}
+.recipe_card_fav_icon:hover {
+  background-color: whitesmoke;
+}
+.recipe_card_title {
+  padding: 0.2rem 0.8rem;
+  padding-bottom: 0.8rem;
+}

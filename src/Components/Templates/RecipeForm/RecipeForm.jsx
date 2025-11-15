@@ -44,7 +44,7 @@ export default function RecipeForm() {
     picture: "",
     cooktime: 30,
     servings: 1,
-    difficulty: "easy",
+    difficulty: "Ușor",
     ingredients: [],
     instructions: [],
     vegan: false,
@@ -146,7 +146,7 @@ export default function RecipeForm() {
         picture: "",
         cooktime: 30,
         servings: 1,
-        difficulty: "easy",
+        difficulty: "Ușor",
         ingredients: [],
         instructions: [],
         vegan: false,
@@ -263,21 +263,21 @@ export default function RecipeForm() {
               exclusive
               onChange={handleDifficultyChange}
             >
-              {["easy", "medium", "hard"].map((lvl) => (
+              {["Ușor", "Mediu", "Dificil"].map((lvl) => (
                 <ToggleButton
                   key={lvl}
                   value={lvl}
                   color={
-                    lvl === "easy"
+                    lvl === "Ușor"
                       ? "success"
-                      : lvl === "medium"
+                      : lvl === "Mediu"
                       ? "warning"
                       : "error"
                   }
                 >
-                  {lvl === "easy"
+                  {lvl === "Ușor"
                     ? "Ușor"
-                    : lvl === "medium"
+                    : lvl === "Mediu"
                     ? "Mediu"
                     : "Dificil"}
                 </ToggleButton>

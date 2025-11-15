@@ -1,0 +1,28 @@
+.recipe_list_container {
+  margin: 1rem 20rem;
+}
+.recipe_list {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.load_more_container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.load_more_container Button {
+  font-size: 1.3rem;
+  border: none;
+  background-color: transparent;
+  color: rgba(51, 51, 218, 0.733);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.recipe_tab_and_filter {
+  display: flex;
+  justify-content: space-between;
+}
