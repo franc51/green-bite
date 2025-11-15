@@ -14,7 +14,7 @@ const Navigation = () => {
     Acasă: "/",
     Rețete: "/retete",
     "Adaugă rețetă": "/adauga-reteta",
-  };
+  }
 
   return (
     <nav className="app_navigation">

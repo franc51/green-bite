@@ -1,7 +1,6 @@
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import Navigation from "./Components/Organisms/Navigation/Navigation";
-import Home from "./Components/Templates/Home/Home";
 
 function AppRoutes() {
   const element = useRoutes(routes); // dynamically build routes from routes.js
