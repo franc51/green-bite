@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../../Organisms/RecipeCard/RecipeCard";
 import "./RecipeList.css";
+require("dotenv").config();
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -9,13 +10,15 @@ const RecipeList = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
+  const backend_API = process.env.backend_API;
+
   const limit = 12;
 
   const fetchRecipes = async (pageNumber = 1, append = false) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/recipes?limit=${limit}&page=${pageNumber}`
+        `${backend_API}/recipes?limit=${limit}&page=${pageNumber}`
       );
       if (!response.ok) throw new Error("Failed to fetch recipes");
 

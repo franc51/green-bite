@@ -21,6 +21,8 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
+const backend_API = process.env.backend_API;
+
 export default function RecipeForm() {
   const [activeStep, setActiveStep] = useState(0);
   const [errors, setErrors] = useState({});
@@ -123,7 +125,7 @@ export default function RecipeForm() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/recipes", {
+      const response = await fetch(`${backend_API}/recipes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
