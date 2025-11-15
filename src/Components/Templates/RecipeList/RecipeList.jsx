@@ -50,12 +50,14 @@ const RecipeList = () => {
 
   return (
     <div className="recipe_list_container">
+      <h2>Toate rețetele</h2>
       <div className="recipe_tab_and_filter">
         <p>
-          Aici va veni un tab gen{"."} Acasă {"...>"} Rețete {"...>"} Supe
+          <strong>{recipes.length} Rețete</strong>
         </p>
-        <p>Aici vine un filtru</p>
+        <p>Filtrează</p>
       </div>
+
       <div className="recipe_list">
         {recipes.map((recipe) => (
           <RecipeCard key={recipe._id} recipe={recipe} />

@@ -14,16 +14,12 @@ const Navigation = () => {
     Acasă: "/",
     Rețete: "/retete",
     "Adaugă rețetă": "/adauga-reteta",
-  }
+  };
 
   return (
     <nav className="app_navigation">
       <div className="app_logo_and_searchBar">
-        <img
-          className="app_navigation_logo"
-          src="./assets/images/gb-logo.png"
-          alt="gb-logo"
-        ></img>
+        <h1>GB</h1>
         <SearchBar></SearchBar>
       </div>
 

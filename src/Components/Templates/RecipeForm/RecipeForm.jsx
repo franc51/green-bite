@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-const REACT_APP_BACKEND_API = process.env.backend_API;
+const REACT_APP_BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 export default function RecipeForm() {
   const [activeStep, setActiveStep] = useState(0);

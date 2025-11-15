@@ -1,8 +1,10 @@
 .recipe_list_container {
-  margin: 1rem 20rem;
+  margin: 2rem 20rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .recipe_list {
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -25,4 +27,6 @@
 .recipe_tab_and_filter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
 }
