@@ -10,20 +10,10 @@ const Navigation = () => {
   const navigationLinks = ["Acasă", "Rețete", "Adaugă rețetă"];
   const navigate = useNavigate(); // hook to programmatically navigate
 
-  const handleNavClick = (link) => {
-    switch (link) {
-      case "Acasă":
-        navigate("/");
-        break;
-      case "Rețete":
-        navigate("/recipes");
-        break;
-      case "Adaugă rețetă":
-        navigate("/addRecipe");
-        break;
-      default:
-        navigate("/");
-    }
+  const routes = {
+    Acasă: "/",
+    Rețete: "/retete",
+    "Adaugă rețetă": "/adauga-reteta",
   };
 
   return (
@@ -42,8 +32,11 @@ const Navigation = () => {
           <li key={index}>
             <a
               className="app_navigation_list_item"
-              href={link}
-              onClick={() => handleNavClick(link)}
+              href={routes[link]}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(routes[link]);
+              }}
             >
               {link}
             </a>
