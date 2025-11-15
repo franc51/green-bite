@@ -9,7 +9,7 @@ const RecipeList = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const REACT_APP_BACKEND_API = process.env.backend_API;
+  const REACT_APP_BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
   const limit = 12;
 
