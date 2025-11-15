@@ -3,15 +3,11 @@ import RecipeForm from "./Components/Templates/RecipeForm/RecipeForm";
 
 const routes = [
   {
-    path: "/Acasă",
-    element: <Home />,
-  },
-  {
     path: "/",
     element: <Home />,
   },
   {
-    path: "/Adaugă rețetă",
+    path: "/adauga-reteta",
     element: <RecipeForm />,
   },
 ];
