@@ -6,7 +6,6 @@ import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 const Home = () => {
   return (
     <div className="app_home_welcome">
-      <img src="https://www.eatingwell.com/thmb/4RxuQP5ZiZnb7SZ6zyGkvdFvzpw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/291245-complete-keto-diet-EWL-food-list-what-you-can-and-cannot-eat-if-youre-on-a-ketogenic-diet-hero-3x2-726ab3875a2840dbb14f5c97bdbecf7e.jpg"></img>
       <div className="app_home_content">
         <h1 className="app_home_title">Green Bite</h1>
         <p className="app_home_description">
@@ -23,6 +22,7 @@ const Home = () => {
           Vezi rețete
         </Button>
       </div>
+      <img src="./assets/images/homepage.jpg" alt="homepage"></img>
     </div>
   );
 };
