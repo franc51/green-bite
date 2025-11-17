@@ -1,0 +1,36 @@
+.category_container {
+  padding: 1rem 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.categories_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.category_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 3rem 0;
+  cursor: pointer;
+}
+.category_item img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 3px 4px 10px 3px rgba(128, 128, 128, 0.171);
+}
+.category_item img:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 4px 10px 5px rgba(128, 128, 128, 0.171);
+  transition: transform 0.3s ease;
+}

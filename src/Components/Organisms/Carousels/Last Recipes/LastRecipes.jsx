@@ -36,7 +36,7 @@ const LastRecipes = () => {
 
   return (
     <div className="last_recipes_container">
-      <h2>Ultimele rețete</h2>
+      <h1>Cele mai noi rețete</h1>
       {loading && <div>Loading...</div>}
       <div className="recipe_list">
         {recipes.map((recipe) => (

@@ -1,6 +1,7 @@
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import Navigation from "./Components/Organisms/Navigation/Navigation";
+import Footer from "./Components/Organisms/Footer/Footer";
 
 function AppRoutes() {
   const element = useRoutes(routes); // dynamically build routes from routes.js
@@ -14,6 +15,7 @@ function App() {
         <Navigation /> {/* static navigation */}
         <AppRoutes /> {/* dynamic page content from routes.js */}
       </div>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

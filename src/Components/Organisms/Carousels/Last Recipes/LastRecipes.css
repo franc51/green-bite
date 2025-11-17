@@ -1,0 +1,6 @@
+.last_recipes_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
