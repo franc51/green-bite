@@ -15,7 +15,7 @@ function App() {
         <Navigation /> {/* static navigation */}
         <AppRoutes /> {/* dynamic page content from routes.js */}
       </div>
-      <Footer></Footer>
+      <Footer /> {/* static footer */}
     </BrowserRouter>
   );
 }
