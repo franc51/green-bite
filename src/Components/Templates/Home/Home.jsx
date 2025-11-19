@@ -16,14 +16,7 @@ const Home = () => {
             adaugă rețetele celorlalți la favorite ca să poți prepara rapid
             mâncarea îndrăgită de tine!
           </p>
-          <Button
-            variant="contained"
-            startIcon={<RestaurantMenuIcon />}
-            size="large"
-            className="app_home_callToAction"
-          >
-            Vezi rețete
-          </Button>
+          <button className="app_home_callToAction">Vezi rețete</button>
         </div>
         <img
           src="./assets/images/homepage.jpg"
