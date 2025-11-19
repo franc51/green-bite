@@ -2,6 +2,7 @@
   --light_gray_border: 1px solid rgba(128, 128, 128, 0.308);
   --molecule_border_radius: 4px;
   --font_color: rgb(46, 46, 46);
+  --font_family: Cambria;
 }
 
 * {

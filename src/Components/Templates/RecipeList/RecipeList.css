@@ -1,7 +1,6 @@
 .recipe_list_container {
   margin: 2rem 20rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: var(font_family);
 }
 .recipe_list {
   margin: 0.5rem 0;
