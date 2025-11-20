@@ -34,7 +34,12 @@ const RecipeCard = ({ recipe }) => {
         {cooktime && (
           <Box className="recipe_card_cook_and_difficulty_icons">
             <AccessTimeIcon fontSize="small" />
-            <Typography fontSize="small">{cooktime} minute</Typography>
+            <Typography fontSize="small">
+              {Math.floor(cooktime / 60) > 0
+                ? `${Math.floor(cooktime / 60)}h `
+                : ""}
+              {cooktime % 60 > 0 ? `${cooktime % 60}m` : ""}
+            </Typography>
           </Box>
         )}
 
