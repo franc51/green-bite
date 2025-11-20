@@ -20,9 +20,6 @@
   font-size: 2.5rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.app_home_callToAction {
-  width: 14rem;
-}
 .app_home_content {
   padding: 0 4rem;
   display: flex;
@@ -34,4 +31,20 @@
 
 .app_home_last_recipes_container {
   margin: 2rem 0;
+}
+.app_home_callToAction {
+  border: none;
+  background-color: white;
+  padding: 0.8rem 0;
+  border: 2px solid #003c7c;
+  border-radius: 2rem;
+  width: 8rem;
+  color: 003c7c;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(font-family);
+  cursor: pointer;
+}
+.app_home_callToAction:hover {
+  background-color: whitesmoke;
 }
