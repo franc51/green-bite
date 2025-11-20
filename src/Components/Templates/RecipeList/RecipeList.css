@@ -26,6 +26,7 @@
 .recipe_tab_and_filter {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 1rem;
+  align-items: flex-end;
+  padding: 0.5rem 0;
+  font-weight: 600;
 }
