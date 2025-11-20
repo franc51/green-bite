@@ -8,3 +8,10 @@
   border-radius: 4px;
   width: 30rem;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .app_navigation_search {
+    width: 80vw;
+  }
+}
