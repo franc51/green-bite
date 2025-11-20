@@ -49,10 +49,10 @@ const Footer = () => {
           <button className="footer_button">Contact</button>
         </div>
         <div className="footer_division">
-          <h3>green-bite.ro</h3>
+          <h3>Green-bite.ro</h3>
           <ul className="footer_link_list">
             {footerLinks.map((item) => (
-              <li key={item.url}>
+              <li key={item.url} className="footer_links">
                 <a href={item.url}>{item.linkLabel}</a>
               </li>
             ))}
@@ -63,7 +63,7 @@ const Footer = () => {
           <h3>Informații</h3>
           <ul className="footer_link_list">
             {footerImages.map((item) => (
-              <li key={item.url}>
+              <li key={item.url} className="footer_links">
                 <a href={item.url}>{item.linkLabel}</a>
               </li>
             ))}

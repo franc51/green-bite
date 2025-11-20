@@ -17,16 +17,19 @@
 .footer_division h3 {
   font-size: 1.3rem;
 }
+.footer_division p {
+  font-size: 1.1rem;
+}
 .footer_link_list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.footer_links {
+.footer_links a {
   text-decoration: none;
   color: rgb(73, 72, 72);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 .footer_links:hover {
   text-decoration: underline;
@@ -54,17 +57,16 @@ hr {
   background-color: #0050a8;
   padding: 0.8rem 0;
   border-radius: 2rem;
-  width: 8rem;
+  max-width: 10rem;
   color: white;
   font-weight: 600;
-  font-size: 1rem;
-  font-family: var(--font-family);
+  font-size: 1.1rem;
   cursor: pointer;
 }
 button:hover {
   background-color: #003c7c;
 }
 p {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: rgb(73, 72, 72);
 }
