@@ -30,3 +30,14 @@
   padding: 0.5rem 0;
   font-weight: 600;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .recipe_list {
+    margin: 0.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
+}

@@ -1,41 +1,64 @@
-.app_navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 20rem;
-  font-family: var(--font_family);
-  position: sticky;
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-  border-bottom: var(--light_gray_border);
-}
-.app_navigation_links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.app_navigation_links li {
-  list-style-type: none;
-  cursor: pointer;
+/* Hides mobile elements on desktop */
+.mobile_hamburger {
+  display: none !important;
 }
 
-.app_navigation_list_item {
-  color: rgb(78, 78, 78);
-  list-style-type: none;
-  text-decoration: none;
-  font-weight: 400;
-  padding: 1.2rem 1rem;
-  font-size: 1.1rem;
+/* MOBILE MENU OVERLAY */
+.mobile_menu_overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  transition: left 0.3s ease;
+  z-index: 200;
 }
-.app_navigation_list_item:hover {
-  color: rgb(78, 78, 180);
-  border-bottom: 2px solid rgb(78, 78, 180);
+
+.mobile_menu_overlay.open {
+  left: 0;
 }
-.app_navigation_logo {
-  height: 2rem;
+
+/* MOBILE MENU CONTAINER */
+.mobile_menu {
+  padding: 2rem;
 }
-.app_logo_and_searchBar {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+
+.mobile_close_btn {
+  margin-bottom: 1rem;
+}
+
+.mobile_menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile_menu ul li {
+  margin-bottom: 1.5rem;
+}
+
+.mobile_menu .app_navigation_list_item {
+  font-size: 1.4rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  /* Hide desktop nav */
+  .desktop_menu {
+    display: none !important;
+  }
+
+  .app_logo_and_searchBar {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Show hamburger on mobile */
+  .mobile_hamburger {
+    display: block !important;
+  }
+
+  .app_navigation {
+    padding: 1rem;
+  }
 }

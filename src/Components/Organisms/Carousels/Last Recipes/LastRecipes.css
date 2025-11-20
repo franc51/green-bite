@@ -4,3 +4,10 @@
   gap: 1rem;
   font-family: var(--font_family);
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .last_recipes_container {
+    text-align: center;
+  }
+}

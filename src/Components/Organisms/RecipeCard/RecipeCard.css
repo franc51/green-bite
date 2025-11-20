@@ -37,3 +37,11 @@
   padding: 0.2rem 0.8rem;
   padding-bottom: 0.8rem;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .recipe_card {
+    width: 90vw;
+    text-align: left;
+  }
+}

@@ -47,3 +47,26 @@
 .app_home_callToAction:hover {
   background-color: whitesmoke;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .app_home_container {
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    justify-items: center;
+  }
+  .app_home_welcome {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+    width: 90vw;
+  }
+  .app_home_content {
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+  .app_home_welcome_image {
+    display: none;
+  }
+}
