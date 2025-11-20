@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AppSnackbar from "../../Molecules/SnackBar/snackBar";
 import Loader from "../../Molecules/Loader/Loader";
+import "./RecipeForm.css";
 import {
   Box,
   Button,
@@ -198,7 +199,7 @@ export default function RecipeForm() {
     switch (step) {
       case 0:
         return (
-          <Stack spacing={2}>
+          <Stack spacing={2} className="steps">
             <TextField
               label="Titlu"
               name="title"
@@ -427,11 +428,11 @@ export default function RecipeForm() {
       </Stepper>
 
       <Box sx={{ mt: 3 }}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="recipe_form_container">
           {renderStepContent(activeStep)}
           <Stack
             direction="row"
-            spacing={2}
+            spacing={4}
             justifyContent="space-between"
             mt={3}
           >
