@@ -4,46 +4,41 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate(); // hook to programmatically navigate
-  const footerJumpLinks = [
-    "Oferte",
-    "Sortimente",
-    "Green Bite",
-    "Lupilu",
-    "Bucătăria Green Bite",
-    "Părerea ta",
-    "Sănătate",
-    "Surprize.gb.ro",
-    "Raport de sustenabilitate",
+
+  const footerLinks = [
+    { linkLabel: "Oferte", url: "/oferte" },
+    { linkLabel: "Sortimente", url: "/sortimente" },
+    { linkLabel: "Green Bite", url: "/" },
+    { linkLabel: "Lupilu", url: "/lupilu" },
+    { linkLabel: "Bucătăria Green Bite", url: "/bucataria-green-bite" },
+    { linkLabel: "Părerea ta", url: "/parerea-ta" },
+    { linkLabel: "Sănătate", url: "/sanatate" },
+    { linkLabel: "Surprize.gb.ro", url: "/surprize" },
+    {
+      linkLabel: "Raport de sustenabilitate",
+      url: "/raport-de-sustenabilitate",
+    },
   ];
-  const footerJumpRoutes = {
-    Oferte: "/oferte",
-    Sortimente: "/sortimente",
-    "Green Bite": "/",
-    Lupilu: "/lupilu",
-    "Bucătăria Green Bite": "/bucataria-green-bite",
-    "Părerea ta": "/parerea-ta",
-    Sănătate: "/sanatate",
-    "Surprize.gb.ro": "/surprize",
-    "Raport de sustenabilitate": "/raport-de-sustenabilitate",
-  };
+
   const footerInfoLinks = [
-    "Modalități de plată",
-    "Protecția datelor",
-    "Cookies",
+    { linkLabel: "Modalități de plată", url: "/modalitati-de-plata" },
+    { linkLabel: "Protecția datelor", url: "/protectia-datelor" },
+    { linkLabel: "Cookies", url: "/cookies" },
   ];
-  const footerInfoRoutes = {
-    "Modalități de plată": "/modalitati-de-plata",
-    "Protecția datelor": "/protectia-datelor",
-    Cookies: "/cookies",
-  };
-  const footerImages = {
-    AppStore:
-      "https://www.bucataria.lidl.ro/_next/static/media/app-store-apple.1dc319da.svg",
-    GooglePlay:
-      "https://www.bucataria.lidl.ro/_next/static/media/google-play-badge.288029c1.svg",
-    AppGalery:
-      "https://www.bucataria.lidl.ro/_next/static/media/huawei-store-badge.e2e772bb.svg",
-  };
+  const footerImages = [
+    {
+      linkLabel: "AppStore",
+      url: "/assets/images/footer-images/app-store-apple.svg",
+    },
+    {
+      linkLabel: "GooglePlay",
+      url: "/assets/images/footer-images/google-play-badge.svg",
+    },
+    {
+      linkLabel: "AppGalery",
+      url: "/assets/images/footer-images/huawei-store-badge.svg",
+    },
+  ];
 
   return (
     <div className="footer_container">
@@ -56,18 +51,9 @@ const Footer = () => {
         <div className="footer_division">
           <h3>green-bite.ro</h3>
           <ul className="footer_link_list">
-            {footerJumpLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  className="footer_links"
-                  href={footerJumpRoutes[link]}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(footerJumpRoutes[link]);
-                  }}
-                >
-                  {link}
-                </a>
+            {footerLinks.map((item) => (
+              <li key={item.url}>
+                <a href={item.url}>{item.linkLabel}</a>
               </li>
             ))}
           </ul>
@@ -76,18 +62,9 @@ const Footer = () => {
           {" "}
           <h3>Informații</h3>
           <ul className="footer_link_list">
-            {footerInfoLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  className="footer_links"
-                  href={footerInfoRoutes[link]}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(footerInfoRoutes[link]);
-                  }}
-                >
-                  {link}
-                </a>
+            {footerImages.map((item) => (
+              <li key={item.url}>
+                <a href={item.url}>{item.linkLabel}</a>
               </li>
             ))}
           </ul>
@@ -105,8 +82,8 @@ const Footer = () => {
       <div className="footer_downloads_container">
         <h3>Descarcă aplicația Green Bite</h3>
         <div className="footer_image">
-          {Object.entries(footerImages).map(([key, url]) => (
-            <img key={key} src={url} alt={key} style={{ height: "40px" }} />
+          {footerImages.map((img) => (
+            <img key={img.linkLabel} src={img.url} alt={img.linkLabel} />
           ))}
         </div>
       </div>

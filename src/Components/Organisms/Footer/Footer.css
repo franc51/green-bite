@@ -1,7 +1,7 @@
 .footer_container {
   padding: 0 20rem;
   background-color: #f1f2f4;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: var(--font-family);
 }
 .footer_division_container {
   display: flex;
@@ -58,7 +58,7 @@ hr {
   color: white;
   font-weight: 600;
   font-size: 1rem;
-  font-family: var(font-family);
+  font-family: var(--font-family);
   cursor: pointer;
 }
 button:hover {
