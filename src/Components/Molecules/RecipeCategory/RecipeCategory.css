@@ -1,6 +1,6 @@
 .category_container {
   padding: 1rem 0;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: var(--font_family);
 }
 
 .categories_grid {

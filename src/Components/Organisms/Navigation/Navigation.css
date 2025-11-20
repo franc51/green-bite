@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 20rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font_family);
   position: sticky;
   width: 100%;
   background-color: rgb(255, 255, 255);
