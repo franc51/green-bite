@@ -45,32 +45,31 @@ const RecipeList = () => {
     }
   };
 
-  if (error) return <div>Error: {error}</div>;
-  if (recipes.length === 0 && !loading) return <div>No recipes found.</div>;
+  if (error) return <div className="error">Error: {error}</div>;
+  if (recipes.length === 0 && !loading)
+    return <div className="error">No recipes found.</div>;
 
-  return (
-    <div className="recipe_list_container">
-      <h2>Toate rețetele</h2>
-      <div className="recipe_tab_and_filter">
-        <p>
-          <strong>{recipes.length} Rețete</strong>
-        </p>
-        <p>Filtrează</p>
-      </div>
+  if (loading && recipes.length === 0) {
+    return (
+      <div className="recipe_list_container">
+        <h2>Toate rețetele</h2>
 
-      <div className="recipe_list">
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe._id} recipe={recipe} />
-        ))}
-      </div>
-      {loading && <div>Loading...</div>}
-      {page < totalPages && !loading && (
-        <div className="load_more_container">
-          <button onClick={handleLoadMore}>Încarcă mai multe rețete</button>
+        <div className="recipe_list">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div className="skeleton_card" key={i}>
+              <div className="skeleton_image"></div>
+
+              <div className="skeleton_content">
+                <div className="skeleton_line long"></div>
+                <div className="skeleton_line medium"></div>
+                <div className="skeleton_line short"></div>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default RecipeList;
