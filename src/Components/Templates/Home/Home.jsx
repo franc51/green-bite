@@ -1,11 +1,11 @@
 import React from "react";
 import "./Home.css";
-import { Button } from "@mui/material";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import LastRecipes from "../../Organisms/Carousels/Last Recipes/LastRecipes";
 import RecipeCategory from "../../Molecules/RecipeCategory/RecipeCategory";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="app_home_container">
       <div className="app_home_welcome">
@@ -16,7 +16,15 @@ const Home = () => {
             adaugă rețetele celorlalți la favorite ca să poți prepara rapid
             mâncarea îndrăgită de tine!
           </p>
-          <button className="app_home_callToAction">Vezi rețete</button>
+          <button
+            className="app_home_callToAction"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/retete");
+            }}
+          >
+            Vezi Rețete
+          </button>
         </div>
         <img
           src="./assets/images/homepage.jpg"
