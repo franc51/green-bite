@@ -28,37 +28,38 @@ const Navigation = () => {
       <nav className="app_navigation">
         <div className="app_logo_and_searchBar">
           <h1>GB</h1>
-          <SearchBar />
         </div>
 
-        {/* Desktop menu */}
-        <ul className="app_navigation_links desktop_menu">
-          {navigationLinks.map((link, index) => (
-            <li key={index}>
-              <a
-                className="app_navigation_list_item"
-                href={routes[link]}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavigate(link);
-                }}
-              >
-                {link}
-              </a>
-            </li>
-          ))}
-          <IconButton color="primary" className="fav_icon">
-            <FavoriteBorderIcon />
-          </IconButton>
-        </ul>
+        <div>
+          {/* Desktop menu */}
+          <ul className="app_navigation_links desktop_menu">
+            {navigationLinks.map((link, index) => (
+              <li key={index}>
+                <a
+                  className="app_navigation_list_item"
+                  href={routes[link]}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigate(link);
+                  }}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+            <IconButton color="primary" className="fav_icon">
+              <FavoriteBorderIcon />
+            </IconButton>
+          </ul>
 
-        {/* Mobile hamburger */}
-        <IconButton
-          className="mobile_hamburger"
-          onClick={() => setIsMobileOpen(true)}
-        >
-          <MenuIcon />
-        </IconButton>
+          {/* Mobile hamburger */}
+          <IconButton
+            className="mobile_hamburger"
+            onClick={() => setIsMobileOpen(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </div>
       </nav>
 
       {/* Mobile sliding menu */}
@@ -70,7 +71,7 @@ const Navigation = () => {
           >
             <CloseIcon />
           </IconButton>
-
+          <SearchBar />
           <ul>
             {navigationLinks.map((link, index) => (
               <li key={index}>

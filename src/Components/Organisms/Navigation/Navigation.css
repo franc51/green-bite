@@ -1,4 +1,16 @@
-/* Hides mobile elements on desktop */
+/* DESKTOP NAV */
+.app_navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 20rem;
+  border: 1px solid rgba(128, 128, 128, 0.329);
+}
+.app_navigation_links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
 .mobile_hamburger {
   display: none !important;
 }
@@ -21,11 +33,18 @@
 
 /* MOBILE MENU CONTAINER */
 .mobile_menu {
-  padding: 2rem;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
 }
 
 .mobile_close_btn {
-  margin-bottom: 1rem;
+  position: absolute;
+  top: 0;
+  left: 45%;
 }
 
 .mobile_menu ul {
@@ -39,6 +58,10 @@
 
 .mobile_menu .app_navigation_list_item {
   font-size: 1.4rem;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  background-color: whitesmoke;
+  border-radius: 4px;
 }
 
 /* RESPONSIVE */
@@ -48,17 +71,16 @@
     display: none !important;
   }
 
-  .app_logo_and_searchBar {
-    width: 100%;
-    justify-content: space-between;
-  }
-
   /* Show hamburger on mobile */
   .mobile_hamburger {
     display: block !important;
   }
 
   .app_navigation {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: var(--light_gray_border);
   }
 }

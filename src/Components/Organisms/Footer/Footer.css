@@ -96,4 +96,7 @@ p {
   .footer_image {
     flex-direction: column;
   }
+  .footer_button {
+    padding: 0.5rem 1rem;
+  }
 }

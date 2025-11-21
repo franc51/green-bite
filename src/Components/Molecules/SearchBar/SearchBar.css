@@ -12,6 +12,6 @@
 /* RESPONSIVE */
 @media screen and (max-width: 600px) {
   .app_navigation_search {
-    width: 80vw;
+    width: auto;
   }
 }
